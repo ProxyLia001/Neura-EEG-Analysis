@@ -28,7 +28,7 @@ def load_model():
     output = 'Neura_model.pkl'
     if not os.path.exists(output):
         url = f'https://drive.google.com/uc?id={file_id}'
-        gdown.download(url, output, quiet=False, fuzzy=True)
+        gdown.download(url, output, quiet=False)
     return joblib.load(output)    
 
 model = load_model()
