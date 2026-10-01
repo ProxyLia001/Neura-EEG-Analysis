@@ -20,14 +20,15 @@ margin-top: 15px;
 """, unsafe_allow_html=True)
 
 import os
-import gdown
+import urllib.request
 
 @st.cache_resource
 def load_model():
-    file_id = '1CBqIRi59PuHPDVmaVrpvHWavgleijmhb'
     output = 'Neura_model.pkl'
+    dropbox_url = "https://www.dropbox.com/scl/fi/klje5ys9ebjhy1333xdjo/Neura_model.pkl?rlkey=74bxhygpq3h1dj5n2cxiabr9w&st=ob0xrsn3&dl=0"
+    url = dropbox_url.replace('dl=0', 'dl=1').replace('www.dropbox.com', 'dl.dropboxusercontent.com')
     if not os.path.exists(output):
-        gdown.download(id=file_id, output=output, quiet=False)
+        urllib.request.urlretrieve(url, output)
     return joblib.load(output)    
 
 model = load_model()
