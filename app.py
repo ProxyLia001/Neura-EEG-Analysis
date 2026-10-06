@@ -64,8 +64,8 @@ with col_input:
             with open("temp_eeg.edf", "wb") as f:
                 f.write(Uploaded_file.getbuffer())
             raw = mne.io.read_raw_edf("temp_eeg.edf", preload=False, verbose=False)
-            raw.load_data(start=0, stop=int(raw.info['sfreq'] * 30))
-            eeg_data = raw.get_data()
+        
+            eeg_data = raw.get_data(start=0, stop=int(raw.info['sfraq'] * 30))
             signal = eeg_data[0]
 
 with col_display:
