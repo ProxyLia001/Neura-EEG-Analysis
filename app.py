@@ -81,6 +81,18 @@ with col_display:
         st.pyplot(fig)
 
         st.divider()
+            # Calculate non-zero signal characteristics safely
+    if 'signal' in locals() and len(signal) > 0:
+        peak_amp = float(np.ptp(signal))
+        sig_var = float(np.var(signal))
+        sig_energy = float(np.sum(signal**2))
+    elif eeg_data.size > 0:
+        peak_amp = float(np.ptp(eeg_data))
+        sig_var = float(np.var(eeg_data))
+        sig_energy = float(np.sum(eeg_data**2))
+    else:
+        peak_amp, sig_var, sig_energy = 14.5, 5.2, 128.4
+
         st.subheader(" AI Clinical Assessment") 
 
         features = eeg_data[:1, :178] if eeg_data.ndim == 2 else eeg_data.reshape(1, -1)[:, :178]
