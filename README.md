@@ -18,7 +18,7 @@ Neura is an interactive, machine learning-powered web application built to proce
 - **Language:** Python 3.8+
 - **Machine Learning:** Scikit-Learn, NumPy
 - **Web Framework:** Streamlit
-- **Deployment:** Streamlit Cloud / GitHub
+- **Deployment:** Streamlit Cloud / GitHub, Render
 
 ---
 
